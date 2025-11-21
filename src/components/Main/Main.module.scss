@@ -1,0 +1,21 @@
+.main {
+
+    width: 1440px;
+    background-color: #F3F5FA;
+
+    &__container{
+        margin-top: 59px;
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+
+
+    &__title {
+        padding-top: 60px;
+        padding-bottom: 49px;
+        font-family: Inter;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 40px;
+    }
+}

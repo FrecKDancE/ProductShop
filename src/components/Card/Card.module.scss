@@ -1,0 +1,113 @@
+.productsList{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #F3F5FA;
+
+    &__card{    
+        margin-right: 24px;
+        margin-bottom: 28px;
+        padding: 16px;
+        background-color: white;
+
+            &:nth-child(4n){
+                margin-right: 0;
+            }
+        }
+    }
+    .card{
+        &__loader{
+            width: 302px;
+            height: 412px;
+        }
+        &__image{
+            width: 270px;
+            height: 276px;
+            opacity: 1;
+            border-radius: 8px;
+        }
+
+        &__title{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 16px;
+        }
+
+        &__productName{
+            display: flex;
+            align-items: center;
+
+            & h4{
+                font-family: Inter;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 155%;
+            }
+
+            & p{
+                font-family: Open Sans;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 20px;
+                margin-left: 12px;
+                color: #868E96;
+
+            }
+        }
+
+        &__counter{
+            display: flex;
+            align-items: center;
+        }
+
+
+
+        
+        &__price{
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+
+            & h3{
+                font-family: Inter, sans-serif;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 24px;
+                color: #212529;
+                margin-right: 12px;
+            }
+        }
+
+        &__buttonAddBasket{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            opacity: 1;
+            border-radius: 8px;
+            background-color: #E7FAEB;
+            gap: 10px;
+            padding: 10px 43.5px;
+
+            font-family: Inter;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            color: #3B944E;
+
+            & img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+    .counter{
+
+        &__button-value{
+            padding: 0 11px;
+            font-family: Inter;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
