@@ -11,7 +11,7 @@ interface BasketModalProps {
 }
 
 const BasketModal: React.FC<BasketModalProps> = ({ onClose }) => {
-    const { basketItems, setBasketItems } = useBasket();
+    const { basketItems, decreaseItemCount, increaseItemCount } = useBasket();
     const basketRef = useRef<HTMLDivElement>(null);
 
     const handleClickOutside = (event: MouseEvent) => {
@@ -27,28 +27,11 @@ const BasketModal: React.FC<BasketModalProps> = ({ onClose }) => {
         };
     }, []);
 
-    const increaseItemCount = (id: number) => {
-        setBasketItems(prev =>
-            prev.map(item => 
-                item.id === id ? { ...item, count: item.count + 1 } : item
-            )
-        );
+    const calculateTotalPrice = (basketItems: BasketItem[]): number => {
+        return basketItems.reduce((total: number, item: BasketItem) => {
+            return total + (item.price * item.count);
+        }, 0);
     };
-
-    const decreaseItemCount = (id: number) => {
-        setBasketItems(prev => {
-            const updatedItems = prev.map(item => 
-                item.id === id ? { ...item, count: item.count - 1 } : item
-            );
-            return updatedItems.filter(item => item.count > 0);
-        });
-    };
-
-const calculateTotalPrice = (basketItems: BasketItem[]): number => {
-    return basketItems.reduce((total: number, item: BasketItem) => {
-        return total + (item.price * item.count);
-    }, 0);
-};
 
 
     const totalPrice = calculateTotalPrice(basketItems);
@@ -56,7 +39,7 @@ const calculateTotalPrice = (basketItems: BasketItem[]): number => {
     return (
         <div className={style.modal__container} ref={basketRef}>
             {basketItems.length === 0 ? (
-                <div className={style['modal__container__productsList-empty']} ref={basketRef}>
+                <div className={style['modal__container__productsList-empty']}>
                     <img src={cartEmpty} alt="Cart is empty" />
                     <p>Your cart is empty!</p>
                 </div>
@@ -93,7 +76,7 @@ const calculateTotalPrice = (basketItems: BasketItem[]): number => {
                     </ul>
                     <div className={style.productsList__total}>
                         <p>Total</p>
-                        <p>${totalPrice.toFixed(2)}</p>
+                        <p>$ {totalPrice.toFixed(0)}</p>
                     </div>
                 </>
             )}

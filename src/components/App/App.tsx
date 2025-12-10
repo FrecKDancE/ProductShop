@@ -1,6 +1,6 @@
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import { BasketProvider } from '../../context/BasketContext'; // Импортируйте провайдер
+import { BasketProvider } from '../../context/BasketContext';
 
 const App:React.FC = () => {
     return (

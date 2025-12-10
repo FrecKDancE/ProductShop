@@ -1,4 +1,4 @@
-import { useBasket } from '../../context/BasketContext'; // Импортируйте хук контекста
+import { useBasket } from '../../context/BasketContext';
 import cartWhite from '../../assets/cartWhite.svg';
 import style from './Header.module.scss';
 import BasketModal from '../BasketModal/BasketModal';

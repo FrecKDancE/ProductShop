@@ -23,7 +23,7 @@ const Card: React.FC = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                await new Promise((resolve) => setTimeout(resolve, 2000));
+                //await new Promise((resolve) => setTimeout(resolve, 2000));
                 const data = await api.getProducts();
                 setProducts(data);
             } catch (error) {
@@ -38,11 +38,11 @@ const Card: React.FC = () => {
     }, []);
 
     return (
-        <ul className={style.productsList}>
+        <ul className={style.productsList} data-testid="card-component">
             {loading ? (
                 Array.from({ length: 20 }).map((_, index) => (
                     <li key={index} className={`${style.productsList__card} ${style.card__loader}`}>
-                        <img className={style.card__image} src={loaderImg}/>
+                        <img className={style.card__image} src={loaderImg} alt='LoaderSkeleton'/>
                     </li>
 
                 ))
@@ -62,7 +62,7 @@ const Card: React.FC = () => {
                                     <button className={style['counter__button-minus']} onClick={() => decreaseCount(product.id)}>
                                         <img src={minusButton} alt="Decrease" />
                                     </button>
-                                    <span className={style['counter__button-value']}>{productCounts[product.id] || 0}</span>
+                                    <span className={style['counter__button-value']}>{productCounts[product.id] || 1}</span>
                                     <button className={style['counter__button-plus']} onClick={() => increaseCount(product.id)}>
                                         <img src={plusButton} alt="Increase" />
                                     </button>
